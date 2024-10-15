@@ -12,7 +12,7 @@ count=0
 for number in "$@"; do
     if ! [[ "$number" =~ ^-?[0-9]+(\.[0-9]+)?$ ]]; then
         echo "Ошибка: '$number' не является числом."
-        exit 1
+        # exit 1
     fi
     sum=$(echo "$sum + $number" | bc)
     count=$((count + 1))
