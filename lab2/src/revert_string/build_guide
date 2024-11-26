@@ -1,9 +1,4 @@
 
-
-    Анализ имеющихся файлов:
-        У нас есть revert_string.c и revert_string.h с реализацией функции RevertString
-        Есть main.c с основной программой
-
     Компиляция статической библиотеки: a) Создаем объектный файл: gcc -c revert_string.c -o revert_string.o b) Создаем статическую библиотеку: ar rcs librevert_static.a revert_string.o
 
     Компиляция динамической библиотеки: gcc -shared -fPIC revert_string.c -o librevert_dynamic.so

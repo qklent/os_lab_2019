@@ -1,27 +1,24 @@
-    Компиляция тестов с динамической библиотекой: Команда для компиляции будет выглядеть примерно так: gcc -I./revert_string -L./revert_string -Wl,-rpath,./revert_string -o run_tests tests/test.c -lrevert_dynamic -lcunit
-
-    Разберем эту команду:
-        -I./revert_string: указывает путь для поиска заголовочных файлов
-        -L./revert_string: указывает путь для поиска библиотек
-        -Wl,-rpath,./revert_string: устанавливает путь поиска библиотек во время выполнения
-        -o run_tests: имя выходного исполняемого файла
-        tests/test.c: исходный файл с тестами
-        -lrevert_dynamic: линковка с нашей динамической библиотекой
-        -lcunit: линковка с библиотекой CUnit
-
-    Настройка среды выполнения: Убедимся, что переменная LD_LIBRARY_PATH включает путь к нашей динамической библиотеке: export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./revert_string
-
-    Запуск тестов: ./run_tests
-
-Теперь давайте выполним эти шаги:
-
-# Шаг 3: Компиляция тестов
 gcc -I./revert_string -L./revert_string -Wl,-rpath,./revert_string -o run_tests tests/test.c -lrevert_dynamic -lcunit
 
-# Шаг 4: Настройка среды выполнения
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./revert_string
 
-# Шаг 5: Запуск тестов
+-I./revert_string: указывает путь для поиска заголовочных файлов
+-L./revert_string: указывает путь для поиска библиотек
+-Wl,-rpath,./revert_string: устанавливает путь поиска библиотек во время выполнения
+-o run_tests: имя выходного исполняемого файла
+tests/test.c: исходный файл с тестами
+-lrevert_dynamic: линковка с нашей динамической библиотекой
+-lcunit: линковка с библиотекой CUnit
+
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./revert_string\
+
+
 ./run_tests
 
-Если все шаги выполнены правильно, то должны запуститься тесты, использующие вашу динамическую библиотеку revert_string и фреймворк CUnit.
+
+gcc -I./revert_string -L./revert_string -Wl,-rpath,./revert_string -o run_tests tests/test.c -lrevert_dynamic -lcunit
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./revert_string
+
+
+./run_tests

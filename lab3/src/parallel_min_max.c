@@ -111,7 +111,6 @@ int main(int argc, char **argv) {
       active_child_processes += 1;
       if (child_pid == 0) {
         // child process
-        // parallel somehow
         for (int j = 0; j < pnum; j++) {
             if (j != i) {
                 close(pipes[j][0]);
@@ -148,7 +147,7 @@ int main(int argc, char **argv) {
   }
 
   for (int i = 0; i < pnum; i++) {
-      close(pipes[i][1]);  // Закрыть пишущие концы pipe
+      close(pipes[i][1]);  
   }
 
   while (active_child_processes > 0) {
