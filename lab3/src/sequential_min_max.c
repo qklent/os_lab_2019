@@ -22,6 +22,7 @@
     printf("array_size is a positive number\n");
     return 1;
   }
+  printf("array size %d", array_size);
 
   int *array = malloc(array_size * sizeof(int));
   GenerateArray(array, array_size, seed);

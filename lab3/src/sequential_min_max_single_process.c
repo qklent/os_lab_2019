@@ -15,8 +15,8 @@ int main() {
     } else if (pid == 0) {
         // Child process
         printf("in child process");
-        char *args[] = {"./sequential_min_max", "10", "20", NULL};
-        char *args2[] = {"10", "20"};
+        char *args[] = {"./sequential_min_max", "42", "129", NULL};
+        char *args2[] = {"42", "129"};
         execv(args[0], args2);
         perror("Exec failed\n");
         return 1;
